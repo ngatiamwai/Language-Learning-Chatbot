@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Learning Chatbot| Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+    <script>
+        var googleUser = {};
+        var startApp = function () {
+            gapi.load("auth2", function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: "hmnh plym iyua otrx.apps.googleusercontent.com",
+                    cookiepolicy: "single_host_origin",
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+                attachSignin(document.getElementById("customBtn"));
+            });
+        };
+
+        function attachSignin(element) {
+            console.log(element.id);
+            auth2.attachClickHandler(
+                element,
+                {},
+                function (googleUser) {
+                    document.getElementById("name").innerText =
+                        "Signed in: " + googleUser.getBasicProfile().getName();
+                },
+                function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                }
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <div class="master">
+        <div class="errorMsg"></div>
+        <div class="welcomeMsg">
+            <h1 style="color: green;">Language Learing Chatbot</h1>
+            <h2>Welcome to the Language Learning Chatbot.</h2>
+            <p>
+                Where you learn any language you dream of with the correct
+                pronunciation
+            </p>
+        </div>
+        <form action="" class="registerForm">
+            <div class="inputDets">
+                <h2 style="display: flex; justify-content: center; padding-bottom: 1vh">
+                    Register with us
+                </h2>
+                <div class="names">
+                    <input type="text" name="name" class="firstName" id="firstName" placeholder="First Name" />
+                    <input type="text" name="name" class="lastName" id="lastName" placeholder="Last Name" />
+                </div>
+                <input type="email" name="email" id="email" class="email" placeholder="Email" />
+                <input type="tel" name="telNo" id="telNo" class="telNo" placeholder="+254 712 345 678" />
+                <div style="position: relative; display: inline-block">
+                    <input type="password" name="password" id="password" placeholder="Password"
+                        style="padding-right: 210px; padding-left: 10px" />
+                    <i class="far fa-eye" id="togglePassword" style="
+                  position: absolute;
+                  right: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                "></i>
+                </div>
+                <button type="submit" onclick="redirectToLoginPage()">Register</button>
+                <div class="regPar">
+                    <hr />
+                    <p>Or</p>
+                    <hr />
+                </div>
+                <div class="otherLogins">
+                    <div class="google" id="customBtn" class="customGPlusSignIn">
+                        <iconify-icon icon="flat-color-icons:google" width="30"></iconify-icon>
+                        <p>Sign up with Google</p>
+                    </div>
+    
+                    <div id="name"></div>
+                    <script>
+                        startApp();
+                    </script>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function redirectToLoginPage() {
+        // Use window.location.href to redirect to the login page
+        window.location.href = "/Client/login.html";
+    }
+
+    // JavaScript to toggle password visibility
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", function () {
+        const type =
+            passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+    });
+</script>
+
+</html>

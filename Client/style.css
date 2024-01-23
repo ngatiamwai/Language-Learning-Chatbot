@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+.master{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    justify-items: center;
+    align-content: center;
+    padding: 10vh ;
+    gap:15vh ;
+    background-image: url('');
+}
+
+.welcomeMsg{
+    width: 40%;
+}
+.inputDets{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    /* width: 50%; */
+}
+input{
+    padding: 2vh;
+    border-radius: 1vh;
+    border: 1px solid green;
+}
+.regPar{
+    display: flex;
+   justify-content: center ;
+   padding-top: 5vh;
+   padding-bottom: 2vh;
+   flex-direction: row;
+}
+.regPar hr {
+    flex: 1; 
+    margin: 0 3vh;
+    height: 0rem;
+}
+button{
+    padding: 2vh;
+    border-radius: 1vh;
+    background-color: green;
+    cursor: pointer;
+    color: whitesmoke;
+    border: 1px solid green;
+}
+button:hover{
+    background-color: rgb(185, 235, 185);
+    color: black;
+}
+.otherLogins{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    align-content: center;
+}
+.google{
+    background-color: white; 
+    color: black; 
+    outline: 1px solid green;
+    border-radius: 4vh; 
+    display: flex; 
+    width: 20vw; 
+    height: 8vh; 
+    gap: 5vh ;
+    align-items: center ;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+}
+.google:hover{
+    background-color: rgb(185, 235, 185);
+    color: black;
+}
