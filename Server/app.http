@@ -1,0 +1,12 @@
+### register
+POST  http://localhost:3003/users/register
+Content-Type: application/json
+
+{
+    "firstName":"Ngatia",
+    "lastName": "Motsoaledi",
+    "userName": "ngatia",
+    "email":"ngatia@gmail.com",
+    "phoneNumber": "12345678",
+    "password":"12345678"
+}
