@@ -23,7 +23,7 @@
 .inputDets{
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: 1vh;
     /* width: 50%; */
 }
 input{

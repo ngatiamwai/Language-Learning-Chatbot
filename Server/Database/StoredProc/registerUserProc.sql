@@ -8,7 +8,7 @@ CREATE OR ALTER PROCEDURE registerUserProc
     @phoneNumber VARCHAR(20)
 AS
 BEGIN
-    INSERT INTO userTable (userId, firstName, lastName, userName, email, password, phoneNumber)
+    INSERT INTO usersTable (userId, firstName, lastName, userName, email, password, phoneNumber)
     VALUES (@userId, @firstName, @lastName, @userName, @email, @password, @phoneNumber);
 END;
 

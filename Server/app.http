@@ -1,12 +1,22 @@
 ### register
-POST  http://localhost:3003/users/register
+POST http://localhost:3003/user/register
 Content-Type: application/json
 
 {
-    "firstName":"Ngatia",
-    "lastName": "Motsoaledi",
-    "userName": "ngatia",
-    "email":"ngatia@gmail.com",
-    "phoneNumber": "12345678",
+    "firstName":"Ngatia", 
+    "lastName": "Motsoaledi", 
+    "userName": "ngatia", 
+    "email":"ngatia25@gmail.com", 
+    "password":"12345678", 
+    "phoneNumber": "12345678"
+}
+
+
+### login
+POST  http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email":"ngatia25@gmail.com", 
     "password":"12345678"
 }

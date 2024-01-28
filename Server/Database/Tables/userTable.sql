@@ -1,5 +1,5 @@
 BEGIN TRY
-    CREATE TABLE userTable (
+    CREATE TABLE usersTable (
         userId VARCHAR(200) PRIMARY KEY,
         firstName VARCHAR(50) NOT NULL ,
         lastName VARCHAR(50) NOT NULL ,
@@ -18,3 +18,7 @@ END TRY
 BEGIN CATCH
     THROW 50001, 'Table already exists!', 1;
 END CATCH;
+
+SELECT * FROM usersTable
+
+DROP TABLE userTable
