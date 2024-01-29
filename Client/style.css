@@ -79,3 +79,28 @@ button:hover{
     background-color: rgb(185, 235, 185);
     color: black;
 }
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header>img{
+    height: 15vh;
+}
+a{
+    text-decoration: none;
+    color: green;
+}
+.regBtn{
+display: flex;
+align-items: center;
+gap: 8vh;
+}
+.topbody{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 8vh
+    /* justify-content: center; */
+}
