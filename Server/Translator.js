@@ -1,12 +1,13 @@
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-let key = "ddb8e6a7afc3445f97f9506794776e52";
-let endpoint = "https://api.cognitive.microsofttranslator.com";
+require('dotenv').config(); // Load environment variables from .env file
 
+let key = process.env.TRANSLATOR_KEY;
+let endpoint = process.env.TRANSLATOR_ENDPOINT;
 // location, also known as region.
 // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-let location = "westeurope";
+let location = process.env.TRANSLATOR_LOCATION;
 
 axios({
     baseURL: endpoint,
