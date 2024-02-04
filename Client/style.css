@@ -84,6 +84,7 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    align-content: center;
 }
 header>img{
     height: 15vh;
@@ -101,6 +102,6 @@ gap: 8vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 8vh
+    /* padding-top: 5vh */
     /* justify-content: center; */
 }
