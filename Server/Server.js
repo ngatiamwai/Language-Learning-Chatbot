@@ -27,6 +27,30 @@ app.post('/translate', async (req, res) => {
     }
 });
 
+// Route to handle translation requests
+app.post('/saveLanguage', async (req, res) => {
+    // Retrieve the user ID from the request body
+    const {userId} = req.params;
+  
+    if (!userId) {
+      // If user ID is not provided in the request body, return an error response
+      return res.status(401).send('User ID not provided');
+    }
+  
+    const { sourceText, targetLanguage, translatedText } = req.body;
+  
+    try {
+      // Insert translation data into the database
+      await database.insertTranslation(userId, sourceText, targetLanguage, translatedText);
+      res.status(200).send('Translation saved successfully.');
+    } catch (error) {
+      console.error('Error:', error.message);
+      res.status(500).send('Internal Server Error');
+    }
+});
+
+  
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
