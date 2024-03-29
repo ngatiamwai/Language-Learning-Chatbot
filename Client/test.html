@@ -96,47 +96,19 @@
             utterance.voice = speechSynthesis.getVoices().filter(voice => voice.name === 'Your Desired Voice')[0];
             speechSynthesis.speak(utterance);
         }
-
-        function getUserId() {
-            // Retrieve user ID from session or wherever it's stored on the frontend
-            // For example, if you're storing it in session storage:
-            const userId = sessionStorage.getItem('userId');
-            return userId;
-          }
-          
-        async function translateAndSave() {
-            const sourceText = document.getElementById('sourceText').value;
-            const targetLanguage = document.getElementById('targetLanguage').value;
-          
-            // Make a POST request to your Node.js server
-            try {
-              const userId = getUserId(); // Retrieve user ID
-              const response = await axios.post(`/saveLanguage{userId}`, {
-                userId: userId,
-                sourceText: sourceText,
-                targetLanguage: targetLanguage,
-                translatedText: '', // Leave this empty, it will be filled after translation
-              });
-          
-              // Update the translatedText textarea with the response from the server
-              document.getElementById('translatedText').value = response.data;
-            } catch (error) {
-              console.error('Error translating and saving:', error);
-            }
-          }
-          
-        // Function to handle translation
+        
         async function translateText() {
             const sourceText = document.getElementById('sourceText').value;
             const targetLanguage = document.getElementById('targetLanguage').value;
-
+            const userId = localStorage.userId; // Retrieve user ID
+        
             // Replace 'YOUR_TRANSLATOR_API_KEY' with your actual Translator API key
             const key = 'ddb8e6a7afc3445f97f9506794776e52';
             const endpoint = 'https://api.cognitive.microsofttranslator.com/translate';
             const token = localStorage.token
-
-
+        
             try {
+                // Translate text
                 const response = await axios.post(`${endpoint}?api-version=3.0`, [{ text: sourceText }], {
                     params: {
                         to: targetLanguage
@@ -149,9 +121,19 @@
                         'token': token
                     }
                 });
-
+        
                 const translatedText = response.data[0].translations[0].text;
                 document.getElementById('translatedText').value = translatedText;
+        
+                // Save translated text
+                const saveResponse = await axios.post('/saveLanguage', {
+                    userId: userId,
+                    sourceText: sourceText,
+                    targetLanguage: targetLanguage,
+                    translatedText: translatedText,
+                });
+        
+                console.log('Translation saved successfully:', saveResponse.data);
             } catch (error) {
                 console.error('Translation error:', error);
                 if (error.response) {
@@ -159,7 +141,7 @@
                 }
             }
         }
-
+        
         // Call the function to fetch supported languages when the page loads
         fetchSupportedLanguages();
     </script>

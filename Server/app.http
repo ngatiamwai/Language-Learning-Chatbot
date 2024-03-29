@@ -20,3 +20,14 @@ Content-Type: application/json
     "email":"ngatia25@gmail.com", 
     "password":"12345678"
 }
+
+
+###Translate Language
+POST http://localhost:3003/saveLanguage/612189bc-5300-4423-b57a-dc32313e7797
+Content-Type: application/json
+
+{
+    "sourceText" : "This is a sample text to translate and save",
+    "targetLanguage" : "sp", // French
+    "translatedText " : "Este es un texto de muestra para traducir y guardar."
+}

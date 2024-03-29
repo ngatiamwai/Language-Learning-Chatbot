@@ -28,17 +28,19 @@ loginForm.addEventListener("submit", (e) => {
                 loginForm.reset();
                 console.log('Response Data:', response.data); // Log the response data to check the structure
                 const errorMsgElement = document.querySelector('.errorMsg');
-                
+            
                 // Check if response data and userId exist
                 if (response.data && response.data.userId) {
                     // Extract userId and token from the response
                     const userIdResponse = response.data.userId;
                     const tokenResponse = response.data.token;
-                    console.log(userIdResponse);
-                    
+                    console.log('userId:', userIdResponse);
+            
                     // Store token and userId in localStorage
                     localStorage.setItem('token', tokenResponse);
                     localStorage.setItem('userId', userIdResponse);
+                } else {
+                    console.log('UserId is not present in the response or response data is invalid.');
                 }
             
                 if (errorMsgElement) {
@@ -46,9 +48,9 @@ loginForm.addEventListener("submit", (e) => {
                     errorMsgElement.classList.remove('error');
                     errorMsgElement.classList.add('success');
             
-                    // setTimeout(() => {
-                    //     window.location.href = '/Client/test.html'; // Redirect to the correct path
-                    // }, 2000);
+                    setTimeout(() => {
+                        window.location.href = '/Client/test.html'; // Redirect to the correct path
+                    }, 2000);
                 }
             
                 setTimeout(() => {
@@ -61,6 +63,9 @@ loginForm.addEventListener("submit", (e) => {
                     }
                 }, 2000);
             })
+            .catch((error) => {
+                console.error('Error occurred during login:', error);
+            });
         }
 });
 

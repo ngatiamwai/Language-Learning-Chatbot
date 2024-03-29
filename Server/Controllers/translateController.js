@@ -23,14 +23,16 @@ async function insertTranslation(userId, sourceText, targetLanguage, translatedT
                   .input('targetLanguage', sql.NVarChar(10), targetLanguage)
                   .input('translatedText', sql.NVarChar(sql.MAX), translatedText)
                   .query(query);
-  
-      console.log('Translation inserted successfully.');
+
+                  if (result.rowsAffected[0] === 1) {
+                    return res.status(200).json({ message: 'Translation successfully added to database' });
+                } else {
+                    return res.status(400).json({ message: 'Translation not added to database' });
+                }
+
     } catch (error) {
       console.error('Error inserting translation:', error.message);
-    } finally {
-      // Close the database connection
-      await sql.close();
-    }
+    } 
   }
 
   module.exports = { insertTranslation };

@@ -93,7 +93,7 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ message: "Incorrect password" });
         }
 
-        const { id, role, ...payload } = user;
+        const { userId, role, ...payload } = user;
         const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "36000s" });
         let message = "Logged in";
 
@@ -101,7 +101,7 @@ const userLogin = async (req, res) => {
             message = "Admin logged in";
         }
 
-        return res.status(200).json({ id, role, message, token });
+        return res.status(200).json({  userId, role, message, token });
     } catch (error) {
         if (error.message.includes("duplicate key value")) {
             return res.status(400).json({ message: "Email already exists" });
