@@ -23,11 +23,23 @@ Content-Type: application/json
 
 
 ###Translate Language
-POST http://localhost:3003/saveLanguage/612189bc-5300-4423-b57a-dc32313e7797
+POST http://localhost:3003/translate/saveLanguage
 Content-Type: application/json
 
 {
-    "sourceText" : "This is a sample text to translate and save",
-    "targetLanguage" : "sp", // French
-    "translatedText " : "Este es un texto de muestra para traducir y guardar."
+    "userId": "612189bc-5300-4423-b57a-dc32313e7797",
+    "SourceText" : "This is a sample text to translate and save",
+    "TargetLanguage" : "sp",
+    "TranslatedText" : "Este es un texto de muestra para traducir y guardar."
 }
+
+
+###Translated Languages by userId
+GET http://localhost:3003/translate/translatedtextsbyuserid/612189bc-5300-4423-b57a-dc32313e7797
+Content-Type: application/json
+
+
+
+###Translated Languages by userId for a specified text
+GET http://localhost:3003/translate/transtatedtextsbyuseridandtranslationid/612189bc-5300-4423-b57a-dc32313e7797/ab784cb5-fadd-4ab1-a237-782e13f594df
+Content-Type: application/json

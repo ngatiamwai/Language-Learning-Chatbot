@@ -1,5 +1,5 @@
 BEGIN TRY
-CREATE TABLE TranslatedText (
+CREATE TABLE TranslatedTextTable (
     TranslationId VARCHAR(200) PRIMARY KEY,
     userId VARCHAR(200),
     SourceText NVARCHAR(MAX),
@@ -15,6 +15,6 @@ END CATCH;
 
 
 
-SELECT * FROM TranslatedText
+SELECT * FROM TranslatedTextTable
 
-DROP TABLE TranslatedText
+DROP TABLE TranslatedTextTable

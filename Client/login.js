@@ -49,7 +49,7 @@ loginForm.addEventListener("submit", (e) => {
                     errorMsgElement.classList.add('success');
             
                     setTimeout(() => {
-                        window.location.href = '/Client/test.html'; // Redirect to the correct path
+                        window.location.href = '/Client/learnLanguage.html'; // Redirect to the correct path
                     }, 2000);
                 }
             
