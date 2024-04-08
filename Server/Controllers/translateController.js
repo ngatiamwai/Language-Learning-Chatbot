@@ -80,10 +80,34 @@ const getTranslatedTextByUserIdAndTranslationId = async (req, res)=>{
     return res.status(500).json({ error: error.message });
   }
 }
+const deleteTranslatedText = async (req, res) => {
+  try {
+    const TranslationId = req.params.TranslationId;
+    // const userId = req.params.userId;
+
+    console.log(TranslationId);
+
+    const pool = await mssql.connect(sqlConfig);
+
+    const deleteText = (
+      await pool.request()
+      .input("TranslationId", TranslationId)
+      // .input("userId", userId)
+      .execute("DeleteTranslatedText")
+    ).recordset;
+
+    res.json({ DeletedTexts: deleteText });
+
+  } catch (error) {
+    return res.status(500).json({ Error: error.message }); // Use error.message to get the error message
+  }
+};
+
 
 
 module.exports = {
   insertTranslation,
   translatedTextByUserId,
-  getTranslatedTextByUserIdAndTranslationId
+  getTranslatedTextByUserIdAndTranslationId,
+  deleteTranslatedText
 };

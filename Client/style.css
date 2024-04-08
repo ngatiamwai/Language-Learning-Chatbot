@@ -177,3 +177,7 @@ gap: 8vh;
     font-style: italic;
     }
     
+    .delete-button {
+        display: none;
+    }
+    

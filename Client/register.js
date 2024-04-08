@@ -61,20 +61,14 @@ registerForm.addEventListener("submit", (e) => {
                 }, 2000);
             })
             .catch((error) => {
-                console.error(error);
+                const errMessage = error.response.data.message || error.response.data.error;
                 const errorMsgElement = document.querySelector('.errorMsg');
-
                 if (errorMsgElement) {
-                    errorMsgElement.textContent = error.response ? error.response.data.message : 'An error occurred.';
+                    errorMsgElement.textContent = errMessage;
                     errorMsgElement.classList.remove('success');
-                    errorMsgElement.classList.add('error');
-
-                    setTimeout(() => {
-                        errorMsgElement.textContent = '';
-                        errorMsgElement.classList.remove('success');
-                        errorMsgElement.classList.remove('error');
-                    }, 3000);
+                    errorMsgElement.classList.remove('error');
                 }
+                console.error('Error occurred during login:', error);
             });
     }
 });

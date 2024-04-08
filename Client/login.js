@@ -55,7 +55,7 @@ loginForm.addEventListener("submit", (e) => {
             
                 setTimeout(() => {
                     const errorMsgElement = document.querySelector('.errorMsg');
-            
+                    
                     if (errorMsgElement) {
                         errorMsgElement.textContent = response.data.message;
                         errorMsgElement.classList.remove('success');
@@ -64,6 +64,13 @@ loginForm.addEventListener("submit", (e) => {
                 }, 2000);
             })
             .catch((error) => {
+                const errMessage = error.response.data.message;
+                const errorMsgElement = document.querySelector('.errorMsg');
+                if (errorMsgElement) {
+                    errorMsgElement.textContent = errMessage;
+                    errorMsgElement.classList.remove('success');
+                    errorMsgElement.classList.remove('error');
+                }
                 console.error('Error occurred during login:', error);
             });
         }

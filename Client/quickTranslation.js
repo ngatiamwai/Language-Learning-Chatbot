@@ -1,7 +1,6 @@
 async function fetchSupportedLanguages() {
-    // Replace 'YOUR_TRANSLATOR_API_KEY' with your actual Translator API key
-    const key = '<YOUR KEY>';
-    const endpoint = '<YOUR ENDPOINT>';
+    const key = 'ddb8e6a7afc3445f97f9506794776e52';
+    const endpoint = 'https://api.cognitive.microsofttranslator.com/languages';
 
     try {
         const response = await axios.get(endpoint, {
@@ -38,9 +37,8 @@ function translateText() {
     const sourceText = document.getElementById('sourceText').value;
     const targetLanguage = document.getElementById('targetLanguage').value;
 
-    // Replace 'YOUR_TRANSLATOR_API_KEY' with your actual Translator API key
-    const key = '<YOUR KEY>';
-    const endpoint = '<YOUR ENDPOINT>';
+    const key = 'ddb8e6a7afc3445f97f9506794776e52';
+    const endpoint = 'https://api.cognitive.microsofttranslator.com/translate';
 
     axios.post(`${endpoint}?api-version=3.0`, [{ text: sourceText }], {
         params: {

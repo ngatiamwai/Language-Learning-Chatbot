@@ -43,3 +43,8 @@ Content-Type: application/json
 ###Translated Languages by userId for a specified text
 GET http://localhost:3003/translate/transtatedtextsbyuseridandtranslationid/612189bc-5300-4423-b57a-dc32313e7797/ab784cb5-fadd-4ab1-a237-782e13f594df
 Content-Type: application/json
+
+
+###Delete Text
+DELETE http://localhost:3003/translate/deletetext/612189bc-5300-4423-b57a-dc32313e7797/6604892a-26e9-410c-99af-78a32d1aec26
+Content-Type: application/json
