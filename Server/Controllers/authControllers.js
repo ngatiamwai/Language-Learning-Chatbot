@@ -24,8 +24,10 @@ const registerUser = async (req, res) => {
         const { error } = registerSchema.validate(req.body);
 
         if (error) {
-            return res.status(422).json(error.details);
+            const errorMessage = error.details[0].message.replace(/['"]+/g, ''); // Remove quotes from the message
+            return res.status(422).json(errorMessage);
         }
+        
 
         const pool = await mssql.connect(sqlConfig)
             .catch((error) => {
@@ -55,7 +57,7 @@ const registerUser = async (req, res) => {
         }
     } catch (error) {
         console.error("Registration failed:", error);
-        return res.status(500).json({ error: "Registration failed" });
+        return res.status(500).json({ Error: error.message });
     }
 };
 
@@ -63,15 +65,18 @@ const userLogin = async (req, res) => {
     try {
         console.log(req.body);
         const { email, password } = req.body;
-        const { error } = loginSchema.validate(req.body);
         if (!email || !password) {
             return res.status(400).json({
                 error: "Please input all values"
             });
         }
+        const { error } = loginSchema.validate(req.body);
+
         if (error) {
-            return res.status(422).json(error.details);
+            const errorMessage = error.details[0].message.replace(/['"]+/g, ''); // Remove quotes from the message
+            return res.status(422).json(errorMessage);
         }
+        
 
         const pool = await mssql.connect(sqlConfig);
         const user = (

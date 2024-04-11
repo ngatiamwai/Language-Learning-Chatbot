@@ -61,15 +61,16 @@ registerForm.addEventListener("submit", (e) => {
                 }, 2000);
             })
             .catch((error) => {
-                const errMessage = error.response.data.message || error.response.data.error;
+                const errMessage = error.response.data || "An error occurred";
                 const errorMsgElement = document.querySelector('.errorMsg');
                 if (errorMsgElement) {
                     errorMsgElement.textContent = errMessage;
                     errorMsgElement.classList.remove('success');
-                    errorMsgElement.classList.remove('error');
+                    errorMsgElement.classList.add('error');
                 }
-                console.error('Error occurred during login:', error);
+                console.error('Error occurred during registration:', error);
             });
+            
     }
 });
 
