@@ -21,7 +21,7 @@ const registerSchema = joi.object({
    }),
     // role:joi.string(),
     password:joi.string().required().min(8).messages({
-        'password':'password must be 8 characters long'
+        'password':'password must be 8 characters longcd '
     })
 
 })

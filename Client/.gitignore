@@ -5,3 +5,5 @@ const endpoint = 'https://api.cognitive.microsofttranslator.com/translate';
         
 const key = '<YOUR KEY>';
 const endpoint = '<YOUR ENDPOINT>';
+
+node_modules

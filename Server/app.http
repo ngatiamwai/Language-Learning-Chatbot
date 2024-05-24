@@ -3,10 +3,10 @@ POST http://localhost:3003/user/register
 Content-Type: application/json
 
 {
-    "firstName":"1", 
+    "firstName":"1r565e", 
     "lastName": "Motsoaledi", 
     "userName": "ngatia", 
-    "email":"ngatia25@gmail.com", 
+    "email":"ngatia025@gmail.com", 
     "password":"12345678", 
     "phoneNumber": "12345678"
 }

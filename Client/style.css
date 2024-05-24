@@ -64,11 +64,11 @@
     gap: 1vh;
     /* width: 50%; */
 }
-input{
+/* input{
     padding: 2vh;
     border-radius: 1vh;
     border: 1px solid green;
-}
+} */
 .regPar{
     display: flex;
    justify-content: center ;
