@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Language Learning Chatbot</title>
+</head>
+<header>
+    <img src="/Client/Images/Frame 27.svg" alt="Language Learning Chatbot Logo">
+    <p><a href="/Client/admin.html">All Users</a></p>
+    <p><a href="/Client/translationStatistics.html">Most Translated Languages</a></p>
+</header>
+<body>
+    <div class="topbody">
+        <h1> Admin Panel</h1>
+    </div>
+    <div class="users-list">
+        <h2>All Users</h2>
+        <table id="usersTable" class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody id="usersTableBody">
+                <!-- User data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="./admin.js" defer></script>
+</body>
+</html>

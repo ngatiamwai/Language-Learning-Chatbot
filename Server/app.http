@@ -48,3 +48,13 @@ Content-Type: application/json
 ###Delete Text
 DELETE http://localhost:3003/translate/deletetext/612189bc-5300-4423-b57a-dc32313e7797/6604892a-26e9-410c-99af-78a32d1aec26
 Content-Type: application/json
+
+
+###Get all users
+GET http://localhost:3003/user/getallusers
+Content-Type: application/json
+
+
+###Get most translated languages
+GET http://localhost:3003/translate/mosttranslatedlanguages
+Content-Type: application/json

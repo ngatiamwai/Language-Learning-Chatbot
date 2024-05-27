@@ -103,11 +103,26 @@ const deleteTranslatedText = async (req, res) => {
   }
 };
 
+const mostTranslatedLanguages = async(req, res)=>{
+  try {
+    const pool = await mssql.connect(sqlConfig)
+
+    const mostTranslatedLanguages = 
+          (await pool.request().execute("getTranslationStatistics")).recordset
+
+      res.json({TranslatedLanguages: mostTranslatedLanguages})
+    
+
+  } catch (error) {
+    return res.json({error})
+  }
+}
 
 
 module.exports = {
   insertTranslation,
   translatedTextByUserId,
   getTranslatedTextByUserIdAndTranslationId,
-  deleteTranslatedText
+  deleteTranslatedText,
+  mostTranslatedLanguages
 };

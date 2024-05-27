@@ -64,11 +64,11 @@
     gap: 1vh;
     /* width: 50%; */
 }
-/* input{
+input{
     padding: 2vh;
     border-radius: 1vh;
     border: 1px solid green;
-} */
+}
 .regPar{
     display: flex;
    justify-content: center ;
@@ -142,8 +142,9 @@ gap: 8vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    align-content: center;
     /* padding-top: 5vh */
-    /* justify-content: center; */
+    justify-content: center;
 }
 .container {
     margin-right: 2em ;
@@ -180,4 +181,82 @@ gap: 8vh;
     .delete-button {
         display: none;
     }
+
+    .chart{
+        /* margin-top: em; */
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+
+    .users-list {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
     
+    /* h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    } */
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    
+    table th, table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    table th {
+        background-color: #343a40;
+        color: white;
+    }
+    
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .table th, .table td {
+        padding: 15px;
+    }
+    
+    .table th {
+        background-color: green;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .table td {
+        color: #333;
+    }
+    
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .table tr:hover {
+        background-color: #ddd;
+    }
+    
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }

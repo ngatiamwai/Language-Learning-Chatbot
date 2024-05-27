@@ -115,8 +115,20 @@ const userLogin = async (req, res) => {
     }
 };
 
+const getAllUsers = async(req, res)=>{
+    try {
+        const pool = await mssql.connect(sqlConfig)
+        const users =(await pool.request().execute('getAllUsersProc')).recordset
+
+        res.status(200).json({message:"All Users",users})
+
+    } catch (error) {
+        return res.json({error})
+    }
+}
 
 module.exports = {
     registerUser,
-    userLogin
+    userLogin,
+    getAllUsers
 };
